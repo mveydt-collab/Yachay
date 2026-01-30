@@ -4,7 +4,9 @@ import json
 import requests
 import numpy as np
 import streamlit as st
-from dotenv import load_dotenv
+if "STREAMLIT_SERVER_RUN" not in os.environ:
+    from dotenv import load_dotenv
+    load_dotenv()  # Load .env locally only
 from sentence_transformers import SentenceTransformer
 import streamlit.components.v1 as components
 from PIL import Image
@@ -716,3 +718,4 @@ if user_input:
     # Clear the file uploader by rerunning
 
     st.rerun()
+
