@@ -16,9 +16,6 @@ from datetime import datetime
 import uuid
 from email_agent import email_agent_interaction, EmailAgent
 
-# Load environment variables
-load_dotenv()
-
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 if not GROQ_API_KEY:
     st.error("GROQ_API_KEY missing in .env")
@@ -718,4 +715,5 @@ if user_input:
     # Clear the file uploader by rerunning
 
     st.rerun()
+
 
