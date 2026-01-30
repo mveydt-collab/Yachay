@@ -1,0 +1,14 @@
+streamlit
+python-dotenv
+sentence-transformers
+json
+numpy
+streamlit.components
+PIL
+easyocr
+nltk
+datetime
+uuid
+re
+requests
+smtplib
