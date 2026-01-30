@@ -1,6 +1,6 @@
 streamlit
 python-dotenv
-SentenceTransformer
+sentence-transformers
 json
 numpy
 streamlit.components
