@@ -1,15 +1,9 @@
 streamlit
 python-dotenv
-torch>=1.7.1
 sentence-transformers
-json
+torch>=1.7.1
 numpy
-streamlit.components
 Pillow
 easyocr
 nltk
-datetime
-uuid
-re
 requests
-smtplib
