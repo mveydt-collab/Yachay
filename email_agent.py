@@ -4,9 +4,9 @@ import json
 import requests
 from email.message import EmailMessage
 import smtplib
-from dotenv import load_dotenv
-
-load_dotenv()
+if "STREAMLIT_SERVER_RUN" not in os.environ:
+    from dotenv import load_dotenv
+    load_dotenv()  # Load .env locally only
 
 EMAIL_FROM = st.secrets["EMAIL_FROM"]
 EMAIL_PASSWORD = st.secrest["EMAIL_PASSWORD"]
@@ -385,3 +385,4 @@ def email_agent_interaction(question, chat_history=None):
 
 
     return "To send an email, please click the '📧 Send Email' button in the sidebar."
+
