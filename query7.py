@@ -4,6 +4,7 @@ import json
 import requests
 import numpy as np
 import streamlit as st
+from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 import streamlit.components.v1 as components
 from PIL import Image
@@ -13,7 +14,10 @@ from datetime import datetime
 import uuid
 from email_agent import email_agent_interaction, EmailAgent
 
-GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+# Load environment variables
+load_dotenv()
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
     st.error("GROQ_API_KEY missing in .env")
     st.stop()
@@ -710,8 +714,4 @@ if user_input:
     save_user_conversations(st.session_state.username, st.session_state.conversations)
 
     # Clear the file uploader by rerunning
-
     st.rerun()
-
-
-
