@@ -17,7 +17,7 @@ from email_agent import email_agent_interaction, EmailAgent
 # Load environment variables
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 if not GROQ_API_KEY:
     st.error("GROQ_API_KEY missing in .env")
     st.stop()
@@ -714,4 +714,5 @@ if user_input:
     save_user_conversations(st.session_state.username, st.session_state.conversations)
 
     # Clear the file uploader by rerunning
+
     st.rerun()
