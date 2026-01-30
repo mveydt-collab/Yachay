@@ -1,5 +1,6 @@
 streamlit
 python-dotenv
+torch>=1.7.1
 sentence-transformers
 json
 numpy
