@@ -8,11 +8,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-EMAIL_FROM = os.getenv("EMAIL_FROM")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_SMTP_SERVER = os.getenv("EMAIL_SMTP_SERVER", "smtp.gmail.com")
-EMAIL_SMTP_PORT = int(os.getenv("EMAIL_SMTP_PORT", 587))
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+EMAIL_FROM = st.secrets["EMAIL_FROM"]
+EMAIL_PASSWORD = st.secrest["EMAIL_PASSWORD"]
+EMAIL_SMTP_SERVER = st.secrest["EMAIL_SMTP_SERVER", "smtp.gmail.com"]
+EMAIL_SMTP_PORT = int(st.secrets["EMAIL_SMTP_PORT", 587])
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
 
 def send_email(to_email, subject, body):
@@ -382,5 +382,6 @@ def email_agent_interaction(question, chat_history=None):
     """
     if "send email" not in question.lower() and "compose email" not in question.lower():
         return None
+
 
     return "To send an email, please click the '📧 Send Email' button in the sidebar."
