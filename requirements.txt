@@ -4,7 +4,7 @@ sentence-transformers
 json
 numpy
 streamlit.components
-PIL
+Pillow
 easyocr
 nltk
 datetime
