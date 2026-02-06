@@ -12,15 +12,27 @@ from dotenv import load_dotenv
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 APP_PASSWORD = os.getenv("YACHAY_PASSWORD")  # <- set this in your .env
+import streamlit as st
 
-GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_MODEL = "llama-3.3-70b-versatile"
-# Display the logo
+# Set page config (optional, but recommended)
 st.set_page_config(
     page_title="Yachay AI",
-    page_icon="logo.png",  # Use your image file
+    page_icon="logo.png",  # Local fallback
     layout="centered"
 )
+
+# Inject explicit favicon link
+st.markdown(
+    """
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/your-username/your-repo/main/logo.png">
+    """,
+    unsafe_allow_html=True
+)
+
+# Rest of your app code...
+GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
 # =========================
 # Simple password gate
 # =========================
