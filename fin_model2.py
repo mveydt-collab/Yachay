@@ -15,7 +15,12 @@ APP_PASSWORD = os.getenv("YACHAY_PASSWORD")  # <- set this in your .env
 
 GROQ_CHAT_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "llama-3.3-70b-versatile"
-
+# Display the logo
+st.set_page_config(
+    page_title="Yachay AI",
+    page_icon="logo.png",  # Use your image file
+    layout="centered"
+)
 # =========================
 # Simple password gate
 # =========================
@@ -37,7 +42,22 @@ def check_password() -> bool:
         else:
             st.session_state["password_correct"] = False
 
-    st.title("🧠 Yachay – Secure Access")
+    # Create columns for the logo and title
+    col1, col2 = st.columns([1, 5])  # Adjust the ratio as needed
+
+    with col1:
+        st.image("logo.png", width=80)  # Your logo
+
+    with col2:
+        # Use HTML/CSS to adjust vertical alignment
+        st.markdown(
+            """
+            <div style="display: flex; align-items: center; height: 100%;">
+                <h1>Yachay – Secure Access</h1>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
     st.text_input(
         "Enter password",
         type="password",
@@ -139,8 +159,11 @@ def build_full_forecast_prompt(df: pd.DataFrame, user_instruction: str, months: 
         },
     }
     return json.dumps(prompt, indent=2)
-
-st.title("🧠 Yachay – AI-Driven Financial Forecasting")
+col1, col2 = st.columns([1, 5])  # Adjust the ratio for spacing
+with col1:
+    st.image("logo.png", width=80)  # Your logo
+with col2:
+    st.title("Yachay – AI Driven Financial Forecasting")  # Title text
 
 # Forecast horizon
 st.header("Forecast Settings")
